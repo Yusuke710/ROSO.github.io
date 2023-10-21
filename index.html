@@ -92,6 +92,7 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
+  <!--
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
       <a class="navbar-item" target="_blank" href="https://mohitshridhar.com">
@@ -117,6 +118,7 @@
         </div>
       </div>
     </div>
+    -->
 
   </div>
 </nav>
@@ -171,7 +173,7 @@
               </span> -->
               <!-- Video Link. -->
               <span class="link-block">
-                <a target="_blank" href=""
+                <a target="_blank" href="https://youtu.be/4EA-Et0h5nU"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -310,7 +312,7 @@
   <br>
   <div class="columns is-centered has-text-centered">
     <div class="column is-two-thirds">
-      <img src="https://yusuke710.github.io/roso.github.io/media/images/pipeline.png" alt="Your Image Description">
+      <img src="https://yusuke710.github.io/roso.github.io/media/images/abstract_figure.png" alt="Your Image Description">
     </div>
   </div>
   <!--/ Paper image. -->
@@ -322,7 +324,7 @@
       <div class="column is-two-thirds">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/UdzoagBgWTA?rel=0&amp;showinfo=0"
+          <iframe src="https://youtu.be/4EA-Et0h5nU"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
@@ -358,35 +360,47 @@
         <br/>
         <!--/ Interpolating. -->
 
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">TransporterNets</h3>
+        <h3 class="title is-4">StableDiffusion</h3>
         <div class="content has-text-justified">
           <p>
-            We use this two-stream architecture in all three networks of <a target=”_blank” href="https://transporternets.github.io/">TransporterNets</a> 
-            to predict pick and place affordances at each timestep. TransporterNets first attends to a local region to decide where to pick, 
-            then computes a placement location by finding the best match for the picked region through 
-            cross-correlation of deep visual features. This structure serves as a powerful inductive bias for learning <a target="_blank" href="https://fabianfuchsml.github.io/equivariance1of2/">roto-translationally equivariant</a> representations in tabletop environments.
+            Our approach involves changing part of the input image such as the object and background. Therefore, we specifically use Stable Diffusion (SD) inpainting, a latent text-to-image diffusion model capable of generating photo-realistic images given a text prompt.  
+          </p>
+        </div>
+        <img src="https://yusuke710.github.io/roso.github.io/media/images/SD_objects.PNG" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+        <br/>
+        <br/>
+            <b>Figure 3:</b>  Examples of inpainting various seen objects (from the CLIPort training data) replacing an unseen objects (the dinosaur figure in the top-left image).
+        <br/>
+        <br/>
 
+        <!-- Re-rendering. -->
+        <h3 class="title is-4">CLIPort</h3>
+        <div class="content has-text-justified">
+          <p>
+            We use CLIPort as out robot policy model. CLIPort is an end-to-end framework designed to empower robots with the ability to manipulate objects precisely while also reasoning about them using abstract concepts. It combines two essential components: the broad semantic understanding of <a target=”_blank” href="https://openai.com/research/clip">CLIP</a> and the spatial precision of <a target=”_blank” href="https://transporternets.github.io/">TransportorNet</a>. CLIPort is a language-conditioned imitation-learning agent that can perform various tabletop tasks, such as packing unseen objects and folding clothes, without the need for explicit object representations, memory, or symbolic states. This framework has been shown to be data-efficient and capable of generalizing effectively to both known and unknown semantic concepts. It can even handle multiple tasks with performance comparable to single-task policies, making it a versatile and powerful tool for robotic manipulation.
           </p>
         </div>
         <div class="content has-text-centered">
-          <video id="transporter-gif"
+          <video id="CLIPort-gif"
                  controls
                  muted
                  autoplay
                  loop
-                 width="40%">
-            <source src="https://transporternets.github.io/images/animation.mp4"
+                 width="100%">
+            <source src="https://cliport.github.io/media/videos/10sim_web_teaser.mp4"
                     type="video/mp4">
           </video>
           <p>
-          Credit: <a href="https://transporternets.github.io/">Zeng et. al (Google)</a>
+          Credit: <a href="https://cliport.github.io/">Shridhar et. al (University of Washington)</a>
           </p>
         </div>
+        <!--
         <br/>
             <b>Paradigm 2:</b> TransporterNets takes an <a target="_blank" href="https://en.wikipedia.org/wiki/Ecological_psychology">action-centric approach</a> to perception where the objective is to <i>detect actions</i> rather than <i>detect objects</i> and then learn a policy. Keeping the action-space grounded in the perceptual input allows us to exploit geometric symmetries for efficient representation learning. 
             When combined with CLIP's pre-trained representations, this enables the learning of reusable manipulation skills without any "objectness" assumptions.
         <br/>
+        -->
         <br/>
         <br/>
 
@@ -394,6 +408,15 @@
 
         <h2 class="title is-3">Results</h2>
 
+        <figure>
+          <img src="https://yusuke710.github.io/roso.github.io/media/images/result.png" alt="Image Description">
+          <figcaption>100 variations are run for each task (where <span style="color: red;">x</span> is varied). The number of failed runs significantly drops when
+            using our synthetic data during inference, approaching the success rate on the training set (first column)</figcaption>
+        </figure>
+        <br/>
+        <br/>
+
+        <!--
         <div class="columns">
           <div class="column has-text-centered">
             <h3 class="title is-5">Single-Task Models</h3>
@@ -514,19 +537,20 @@
           </div>
         </div>
         </br>
+        -->
 
         <h3 class="title is-4">Affordance Predictions</h3>
         <div class="content has-text-justified">
           <p>
-            Examples of pick and place affordance predictions from multi-task <span class="dcliport">CLIPort</span> models:
+            Examples of pick and place affordance predictions from ROSO in tasks from color, objects and unseen background color domain as well as real world data
           </p>
         </div>
         <br/>
-        <img src="https://cliport.github.io/media/images/affordances.png" class="interpolation-image" 
+        <img src="https://yusuke710.github.io/roso.github.io/media/images/affordance1.png" class="interpolation-image" 
          alt="Interpolate start reference image."/>
         <br/>
         <br/>
-        <img src="https://cliport.github.io/media/images/affordance2.png" class="interpolation-image" 
+        <img src="https://yusuke710.github.io/roso.github.io/media/images/affordance1.png" class="interpolation-image" 
          alt="Interpolate start reference image."/>
 
       </div>
