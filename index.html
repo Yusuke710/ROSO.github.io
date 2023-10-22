@@ -129,7 +129,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">ROSO: Improving Robotic Policy Inference via Synthetic Observations</h1>
-          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.robot-learning.org/">conference name</a></h3>
+          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.robot-learning.org/">TBD</a></h3>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a target="_blank" href="https://twitter.com/Yusuke06552418">Yusuke Miyashita</a>,</span>
@@ -203,10 +203,12 @@
 <section class="hero teaser">
   <div class="container is-fullhd">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop height="100%">
-        <source src="https://cliport.github.io/media/videos/abstract_video.mp4"
+      <div class="has-text-centered">
+      <video id="teaser" autoplay muted loop width="720" height="405">
+        <source src="https://yusuke710.github.io/roso.github.io/media/videos/abstract_video.mp4"
                 type="video/mp4">
       </video>
+      </div>
       <h2 class="subtitle has-text-centered">
       </br>
         <span class="dcliport">ROSO</span> uses stable diffusion to pre-process a
@@ -313,7 +315,7 @@
   <br>
   <div class="columns is-centered has-text-centered">
     <div class="column is-two-thirds">
-      <img src="https://yusuke710.github.io/roso.github.io/media/images/abstract_figure.png" alt="Your Image Description">
+      <img src="https://yusuke710.github.io/roso.github.io/media/images/abstract_figure.png" alt="Your Image Description" style="max-width: 60%;">
     </div>
   </div>
   <!--/ Paper image. -->
@@ -350,7 +352,13 @@
           
           <p>Our aim is to replace a target that the <a target="_blank" href="https://cliport.github.io/">CLIPort</a> trained policy has never interacted with in training time, with one it has interacted with. For example, if the policy was trained to pick and place red cubes but had never been trained on blue cubes, upon encountering a blue cube, the masking would identify the novel cube, and inpainting would replace it with a red cube of the same dimensions. In addition, we alter the initial language instruction into an altered instruction which now makes reference to the inpainted object in the synthetic observation, so that the policy is able to execute successfully.</p>
         </div>
-        <video id="pipeline" autoplay muted loop height="100%">
+        <div class="content has-text-centered">
+        <video id="pipeline" 
+        controls
+        muted
+        autoplay
+        loop
+        width="80%">
           <source src="https://yusuke710.github.io/roso.github.io/media/videos/pipeline.mp4"
                   type="video/mp4">
         </video>
@@ -358,6 +366,7 @@
         <br/>
             <b>Video 3:</b>  ROSO intercepts the observations(prompt and image, on the left) to produce synthetic observations that are closer to previously seen ones, before feeding them into a pre-trained policy.
         <br/>
+        </div>
         <br/>
         <br/>
         <!--/ Interpolating. -->
