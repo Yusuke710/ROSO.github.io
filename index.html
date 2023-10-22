@@ -173,7 +173,7 @@
               </span> -->
               <!-- Video Link. -->
               <span class="link-block">
-                <a target="_blank" href="https://youtu.be/4EA-Et0h5nU"
+                <a target="_blank" href="https://youtu.be/4EA-Et0h5nU?si=UhYm0RD-N8OXavMN"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -204,12 +204,12 @@
   <div class="container is-fullhd">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop height="100%">
-        <source src="https://cliport.github.io/media/videos/10sim_web_teaser.mp4"
+        <source src="https://cliport.github.io/media/videos/abstract_video.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
       </br>
-        <span class="dcliport">ROSO</span> ses stable diffusion to pre-process a
+        <span class="dcliport">ROSO</span> uses stable diffusion to pre-process a
         robot’s observation of novel objects during in-
         ference time to fit within its distribution of
         observations of the pre-trained policies.
@@ -218,7 +218,7 @@
   </div>
 </section>
 
-
+<!--
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
@@ -285,6 +285,7 @@
 </br>
   We learn <b>one multi-task policy</b> for 9 real-world tasks including folding cloths, sweeping beans etc. with just <b>179</b> image-action training pairs.
 </h2>
+-->
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -312,7 +313,7 @@
   <br>
   <div class="columns is-centered has-text-centered">
     <div class="column is-two-thirds">
-      <img src="https://yusuke710.github.io/roso.github.io/media/images/abstract_figure.png" alt="Your Image Description">
+      <img src="https://yusuke710.github.io/roso.github.io/media/videos/abstract_figure.png" alt="Your Image Description">
     </div>
   </div>
   <!--/ Paper image. -->
@@ -324,8 +325,7 @@
       <div class="column is-two-thirds">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://youtu.be/4EA-Et0h5nU"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <iframe width="420" height="236" src="https://www.youtube.com/embed/4EA-Et0h5nU?si=j5_B-aIdA9GfwAPm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -350,11 +350,13 @@
           
           <p>Our aim is to replace a target that the <a target="_blank" href="https://cliport.github.io/">CLIPort</a> trained policy has never interacted with in training time, with one it has interacted with. For example, if the policy was trained to pick and place red cubes but had never been trained on blue cubes, upon encountering a blue cube, the masking would identify the novel cube, and inpainting would replace it with a red cube of the same dimensions. In addition, we alter the initial language instruction into an altered instruction which now makes reference to the inpainted object in the synthetic observation, so that the policy is able to execute successfully.</p>
         </div>
-        <img src="https://yusuke710.github.io/roso.github.io/media/images/pipeline.png" class="interpolation-image" 
-         alt="Interpolate start reference image." />
+        <video id="pipeline" autoplay muted loop height="100%">
+          <source src="https://yusuke710.github.io/roso.github.io/media/videos/pipeline.mp4"
+                  type="video/mp4">
+        </video>
         <br/>
         <br/>
-            <b>Figure 2:</b>  ROSO intercepts the observations(prompt and image, on the left) to produce synthetic observations that are closer to previously seen ones, before feeding them into a pre-trained policy.
+            <b>Video 3:</b>  ROSO intercepts the observations(prompt and image, on the left) to produce synthetic observations that are closer to previously seen ones, before feeding them into a pre-trained policy.
         <br/>
         <br/>
         <br/>
@@ -366,9 +368,11 @@
             Our approach involves changing part of the input image such as the object and background. Therefore, we specifically use Stable Diffusion (SD) inpainting, a latent text-to-image diffusion model capable of generating photo-realistic images given a text prompt.  
           </p>
         </div>
+        <div align="center">
         <img src="https://yusuke710.github.io/roso.github.io/media/images/SD_objects.PNG" class="interpolation-image" 
-         alt="Interpolate start reference image." />
-        <br/>
+         alt="Interpolate start reference image." style="max-width: 80%;"/>
+        </div>
+         <br/>
         <br/>
             <b>Figure 3:</b>  Examples of inpainting various seen objects (from the CLIPort training data) replacing an unseen objects (the dinosaur figure in the top-left image).
         <br/>
@@ -387,7 +391,7 @@
                  muted
                  autoplay
                  loop
-                 width="100%">
+                 width="80%">
             <source src="https://cliport.github.io/media/videos/10sim_web_teaser.mp4"
                     type="video/mp4">
           </video>
@@ -550,7 +554,7 @@
          alt="Interpolate start reference image."/>
         <br/>
         <br/>
-        <img src="https://yusuke710.github.io/roso.github.io/media/images/affordance1.png" class="interpolation-image" 
+        <img src="https://yusuke710.github.io/roso.github.io/media/images/affordance2.png" class="interpolation-image" 
          alt="Interpolate start reference image."/>
 
       </div>

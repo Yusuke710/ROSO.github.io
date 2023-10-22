@@ -1,4 +1,4 @@
-# CLIPort
+# ROSO
 
 This is the repository that contains source code for the [ROSO website](https://roso.github.io).
 
