@@ -1,13 +1,13 @@
 # ROSO
 
-This is the repository that contains source code for the [ROSO website](https://roso.github.io).
+This is the repository that contains source code for the [ROSO website](https://yusuke710.github.io/roso.github.io/)
 
 If you find ROSO useful for your work please cite:
 ```
-@article{Miyashita2023ROSO
+@inproceedings{Miyashita2023ROSO
   author    = {Miyashita, Yusuke and Gahtidis, Dimitris and La, Colin and, Rabinowicz, Jeremy and Leitner, Jürgen},
-  title     = {CLIPort: What and Where Pathways for Robotic Manipulation},
-  journal   = {TBD},
+  title     = {ROSO: Improving Robotic Policy Inference via Synthetic Observations},
+  conference = {ACRA},
   year      = {2023},
 }
 ```
